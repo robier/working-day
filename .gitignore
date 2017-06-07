@@ -1,0 +1,5 @@
+# IDE specific folder
+/.idea/
+
+# composer specific folder
+/vendor/
