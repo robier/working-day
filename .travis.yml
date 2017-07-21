@@ -1,0 +1,18 @@
+language: php
+php:
+  - '7.1'
+
+os:
+  - linux
+
+sudo: false
+
+install: composer install
+
+script: composer run tests:clover
+
+after_script: composer run send:coverage
+
+cache:
+  directories:
+  - vendor

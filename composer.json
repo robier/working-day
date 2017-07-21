@@ -1,0 +1,39 @@
+{
+  "name": "robier/working-day",
+  "type": "library",
+  "description": "Business working day handling library",
+  "homepage": "https://github.com/robier/working-days",
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
+  "authors": [
+    {
+      "name": "Robert Premar",
+      "email": "robert.premar@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": "^7.1"
+  },
+  "autoload": {
+    "psr-4": {"Robier\\WorkingDay\\": "src/"}
+  },
+  "autoload-dev": {
+    "psr-4": {"Robier\\WorkingDay\\Tests\\": "tests/src/"}
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.1",
+    "friendsofphp/php-cs-fixer": "^2.3",
+    "codeclimate/php-test-reporter": "^0.4.4"
+  },
+  "scripts": {
+    "lint" : "vendor/bin/php-cs-fixer fix",
+    "tests:clover" : "vendor/bin/phpunit --coverage-clover=\"tests/coverage/clover.xml\"",
+    "send:coverage" : "vendor/bin/test-reporter --coverage-report=\"tests/coverage/clover.xml\"",
+    "docker:build" : "tests/docker/buildDocker",
+    "docker:tests" : "tests/docker/runDocker vendor/bin/phpunit",
+    "docker:tests:coverage" : "tests/docker/runDocker vendor/bin/phpunit --coverage-text --colors=never",
+    "docker:tests:coverage-html" : "tests/docker/runDocker vendor/bin/phpunit --coverage-html=\"tests/coverage/html\""
+  }
+}

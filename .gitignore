@@ -3,3 +3,6 @@
 
 # composer specific folder
 /vendor/
+
+# php code fixer specific cache file
+/.php_cs.cache

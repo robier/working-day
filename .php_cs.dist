@@ -1,0 +1,36 @@
+<?php
+
+use PhpCsFixer\Fixer\Import\OrderedImportsFixer;
+
+$finder = PhpCsFixer\Finder::create()
+    ->notName('trusted_proxies.php')
+    ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ])
+;
+
+return PhpCsFixer\Config::create()
+    ->setUsingCache(true)
+    ->setRules([
+        '@Symfony'               => true,
+        'concat_space'           => ['spacing' => 'one'],
+        'array_syntax'           => ['syntax' => 'short'],
+        'binary_operator_spaces' => ['align_double_arrow' => true],
+        'no_empty_phpdoc'        => false,
+        'phpdoc_no_empty_return' => false,
+        'phpdoc_summary'         => false,
+        'ordered_imports'        => [
+            'sortAlgorithm' => OrderedImportsFixer::SORT_ALPHA,
+            'importsOrder'  => [
+                OrderedImportsFixer::IMPORT_TYPE_CONST,
+                OrderedImportsFixer::IMPORT_TYPE_FUNCTION,
+                OrderedImportsFixer::IMPORT_TYPE_CLASS,
+            ],
+        ],
+        'is_null'                => ['use_yoda_style' => true],
+        'pow_to_exponentiation'  => true,
+    ])
+    ->setRiskyAllowed(true)
+    ->setFinder($finder)
+;

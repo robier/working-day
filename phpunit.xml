@@ -1,13 +1,15 @@
-<phpunit bootstrap="vendor/autoload.php">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="all">
-            <directory>./</directory>
+        <testsuite name="Working day test suite">
+            <directory>tests/src/</directory>
         </testsuite>
     </testsuites>
 
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
-            <directory suffix=".php">source</directory>
+        <whitelist>
+            <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
 </phpunit>
